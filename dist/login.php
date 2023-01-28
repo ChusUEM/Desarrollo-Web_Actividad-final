@@ -14,6 +14,44 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+
+    <?php
+
+// $con = mysqli_connect("localhost","root","","ddbb");
+
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $passwordErr = "";
+$name = $email = $gender = $comment = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Campo Obligado";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "El formato no es válido";
+    }
+  }
+
+  if (empty($_POST["password"])) {
+    $passwordErr = "Campo Obligatorio";
+  } else {
+    $password = test_input($_POST["password"]);
+        if (!preg_match("/^[a-zA-Z0-9-' ]*$/",$password)) {
+            $passwordErr = "La contraseña solo debe tener números y/o letras";
+        }
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-1 px-lg-5 my-5">
@@ -27,43 +65,31 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
 
-                <h2 class="fw-bolder">Piso Amplio en el Centro</h2> <br></br>
+                <form class= "formI" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="transform: none;">  
+                    <h2>Iniciar Sesión</h2>
+                    <p><span class="error">* required field</span></p>
+                  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+                  <span class="error">* <br><?php echo $emailErr;?></span>
+                  <br><br>
+                  Contraseña: <input type="text" name="password" value="<?php echo $password;?>">
+                  <span class="error">* <br><?php echo $passwordErr;?></span>
+                  <br><br>
+                  <button>Acceder</button>
+                  <!-- <input type="submit" name="submit" value="Acceder">   -->
+                </form>
 
-                <h4 class="fw-bolder">Precio: 209.900€</h4><br></br>
+                
 
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
                         
                     </div>
-                            <img class="card-img-top" src="img/casa 1/bloque.jpg" alt="..." /></div>
-                            <!-- Product details-->
-                            <br></br>
-                            <br></br>
+                            
 
-                            <h4>Descripción de la vivienda:</h4><br></br>
-                            <!-- <h6>Chalet construido en el año 2004, de altas calidades, cuatro plantas incluida garaje.</h6> -->
-                                
-                                <br></br>
-                                <br></br>
-
-                            <h4>Características de la vivienda</h4>
-
-                            <h6 class="fw-bolder">
-                                - 100 m² construidos, 94 m² útiles<br></br>
-                                - 4 habitaciones<br></br>
-                                - 2 baños<br></br>
-                                - Terraza<br></br>
-                                - Balcón<br></br>
-                                - Plaza de garaje incluida en el precio<br></br>
-                                - Segunda mano/para reformar<br></br>
-                                - Trastero<br></br>
-                                - Orientación sur, este<br></br>
-                                - Construido en 1975<br></br>
-                                - Calefacción individual: Gas natural<br></br></h6>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a></div> <br></br>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="general.html">Seguir navegando</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.html">Seguir navegando</a></div>
                             </div>
                         </div>
                     </div>
