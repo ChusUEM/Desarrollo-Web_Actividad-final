@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Inmobiliaria</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+
+    <?php
+
+// $con = mysqli_connect("localhost","root","","ddbb");
+
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $passwordErr = "";
+$name = $email = $gender = $comment = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Campo Obligado";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "El formato no es válido";
+    }
+  }
+
+  if (empty($_POST["password"])) {
+    $passwordErr = "Campo Obligatorio";
+  } else {
+    $password = test_input($_POST["password"]);
+        if (!preg_match("/^[a-zA-Z0-9-' ]*$/",$password)) {
+            $passwordErr = "La contraseña solo debe tener números y/o letras";
+        }
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-1 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Inmobiliaria</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Encuentra TU casa al mejor precio</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+
+                <form class= "formI" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="transform: none;">  
+                    <h2>Iniciar Sesión</h2>
+                    <p><span class="error">* required field</span></p>
+                  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+                  <span class="error">* <br><?php echo $emailErr;?></span>
+                  <br><br>
+                  Contraseña: <input type="text" name="password" value="<?php echo $password;?>">
+                  <span class="error">* <br><?php echo $passwordErr;?></span>
+                  <br><br>
+                  <button>Acceder</button>
+                  <!-- <input type="submit" name="submit" value="Acceder">   -->
+                </form>
+
+                
+
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5">
+                        
+                    </div>
+                            
+
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a></div> <br></br>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.html">Seguir navegando</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Creado por Sofía Corral Caballero y Jesús Fernando Franciso de Granada</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
