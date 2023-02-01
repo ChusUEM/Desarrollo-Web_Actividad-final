@@ -12,46 +12,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- <link href="php/login.php" rel="stylesheet" /> -->
     </head>
     <body>
 
-    <?php
-
-// $con = mysqli_connect("localhost","root","","ddbb");
-
-// define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $passwordErr = "";
-$name = $email = $gender = $comment = $password = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "Campo Obligado";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "El formato no es válido";
-    }
-  }
-
-  if (empty($_POST["password"])) {
-    $passwordErr = "Campo Obligatorio";
-  } else {
-    $password = test_input($_POST["password"]);
-        if (!preg_match("/^[a-zA-Z0-9-' ]*$/",$password)) {
-            $passwordErr = "La contraseña solo debe tener números y/o letras";
-        }
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
+    
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-1 px-lg-5 my-5">
@@ -65,7 +30,7 @@ function test_input($data) {
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
 
-                <form class= "formI" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="transform: none;">  
+                <form class= "form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="transform: none;">  
                     <h2>Iniciar Sesión</h2>
                     <p><span class="error">* required field</span></p>
                   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
