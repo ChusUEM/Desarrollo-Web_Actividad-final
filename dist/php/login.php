@@ -1,15 +1,24 @@
 <?php
 
-// $con = mysqli_connect("localhost","root","","ddbb");
+$con = mysqli_connect("127.0.0.1","root","","ddbb");
 
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $passwordErr = "";
-$name = $email = $gender = $comment = $password = "";
+$nameErr = $emailErr = $passwordErr = "";
+$name = $email = $password = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Campo Requerido";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Solo se permiten letras o espacios en blanco";
+    }
+  }
   
   if (empty($_POST["email"])) {
-    $emailErr = "Campo Obligado";
+    $emailErr = "Campo Requerido";
   } else {
     $email = test_input($_POST["email"]);
     // check if e-mail address is well-formed
