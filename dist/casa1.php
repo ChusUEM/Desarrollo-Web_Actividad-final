@@ -33,8 +33,13 @@
 
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
-                        
-                    </div>
+                       
+                    <?php
+                    echo "conectas o no?";
+                    ?>
+                    
+                </div>
+  
                             <img class="card-img-top" src="img/casa 1/bloque.jpg" alt="..." /></div>
                             <!-- Product details-->
                             <br></br>
@@ -62,7 +67,12 @@
                                 - Calefacción individual: Gas natural<br></br></h6>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <? if ($row['RESERVADA'] === 0): ?>
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comprar</a></div> <br></br>
+                                <? else: ?>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Reservada</a></div> <br></br>
+                                <? endif; ?>
+                                
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="general.html">Seguir navegando</a></div>
                             </div>
                         </div>

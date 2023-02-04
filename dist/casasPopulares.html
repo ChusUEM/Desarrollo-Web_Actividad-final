@@ -48,27 +48,29 @@
                             if (!$conn) {
                             die("Connection failed: " . mysqli_connect_error());
                             }
-                            <!-- Consulta -->
+                            // Consulta
                             $query = 'SELECT POPULAR, 
                                         FROM Inmuebles';
      
                             $result = $conn->query($query);
                             $objtMysql->close();
-                            <!-- Recorremos la tabla de la BBDD -->
+                            // Recorremos la tabla de la BBDD 
                             if($result != false){
                                 for($i=0;$i<$result->num_rows;$i++){
                                         $row = $result->fetch_assoc();
                             ?>
                             <article>
-                            <!-- Mostrar resultados -->  
-                                <h2> <?php echo $row['ID']; ?> </h2>
-                                <p> <?php echo $row['DESCRIPCION']; </p>
-                                <p> <?php echo $row['PRECIO']; </p>
-                                <p> <?php echo $row['DIMENSION']; </p>
-                                <p> <?php echo $row['HABITACIONES']; </p>
-                                <p> <?php echo $row['BAÑOS']; </p>
-                                <p> <?php echo $row['EMAIL']; </p>
-                                <p> <?php echo $row['RESERVADA']; </p>
+                            <!-- Mostrar resultados --> 
+                            
+                                <h2> <? echo $row['ID']; ?> </h2>
+                                <p> <?php echo $row['DESCRIPCION']; ?></p>
+                                <p> <?php echo $row['PRECIO']; ?></p>
+                                <p> <?php echo $row['DIMENSION']; ?></p>
+                                <p> <?php echo $row['HABITACIONES']; ?></p>
+                                <p> <?php echo $row['BAÑOS']; ?></p>
+                                <p> <?php echo $row['EMAIL']; ?></p>
+                                <p> <?php echo $row['RESERVADA']; ?></p>
+                            
                             </article>
                             <?php
                                 }
