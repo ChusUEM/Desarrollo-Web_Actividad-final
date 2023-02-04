@@ -1,3 +1,8 @@
+<?php
+$a = "a";
+var_dump($a);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
