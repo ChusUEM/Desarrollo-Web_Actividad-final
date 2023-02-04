@@ -108,7 +108,7 @@ function test_input($data) {
                       Contraseña: *<input type="text" name="password" value="<?php echo $password;?>">
                       <span class="error"> <br><?php echo $passwordErr;?></span>
                       
-                      <button onclick="Introduccion.html">Acceder</button>
+                      <button href="Introduccion.html">Acceder</button>
                       <!-- <input type="submit" name="submit" value="Acceder">   -->
                     </form>                  
 <?php
