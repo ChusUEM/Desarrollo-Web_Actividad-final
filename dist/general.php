@@ -1,3 +1,6 @@
+<?php
+session_start(); // Iniciamos la sesión del usuario
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
