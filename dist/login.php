@@ -55,7 +55,7 @@
     }
 
     if (isset($_REQUEST['Submit']) && $error==false){
-            $conex=mysqli_connect("localhost", "root", "", "Usuarios") or die ("No se pudo conectar a la B.D");
+            $conex=mysqli_connect("localhost", "root", "", "ActividadFinal") or die ("No se pudo conectar a la B.D");
             session_start();
             $sqlResultado=mysqli_query($conex,"SELECT * FROM Usuarios where Email='$Email'") or die ("Fallo consulta");
             $row=mysqli_fetch_all($sqlResultado,'MYSQLI_ASSOC');
@@ -94,7 +94,7 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form class= "form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" style="transform: none;">  
+                    <form class= "form" method="post" action="index.php" style="transform: none;">  
                         <h2>Iniciar Sesión</h2>
                         <p><span class="error">* required field</span></p>
 
