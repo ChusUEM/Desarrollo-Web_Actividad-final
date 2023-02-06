@@ -19,14 +19,12 @@ $pass=md5($Password); // Encriptación de la contraseña
     if ($consulta){
     echo("El usuario se ha creado satisfactoriamente");
     } else {
-    echo ("El usuario NO se ha creado satisfactoriamente");
+    echo ("El usuario NO se ha creado");
     }
 ?>
 
 <body>
-    <form>
     <div id="contenido" class="text-center">
     <input type="submit" name="enviar" value="Ir al Login" class="cajas" style="font-size:40px;" href="login.php"> </input>
     </div>
-    </form>
 </body>

@@ -98,21 +98,41 @@
                         <h2>Iniciar Sesión</h2>
                         <p><span class="error">* required field</span></p>
 
-                      E-mail: *<input type="text" name="Email" value="<?php echo $Email; ?>">
+                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>">
                         <?php
                         if(isset($_REQUEST['Submit']) && $errores["Email"]=="1"){
                             print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
                         }
                         ?> 
                       
-                      Contraseña: *<input type="text" name="password" value="<?php echo $Password; ?>">
+                      Contraseña: *
+                      <!--caja de contraseña-->
+                      <div class="wrapper">
+                            <input type="password" placeholder="Escribe tu contraseña" value="<?php echo $Password; ?>" required>
+                            <span class="mostrar-btn"><i class="fas fa-eye"></i></span><!--muestra el ojo-->
+                      </div>
+                      <span class="mostrar-btn"><i class="fas fa-eye"></i></span> <!--muestra el ojo-->
+                            <!--script para mostrar u ocultar la contraseña-->
+                            <script>
+                                const campoPass = document.querySelector("input");
+                                const mostrarBtn = document.querySelector("span i");
+                                
+                                mostrarBtn.onclick = (() => {
+                                    if (campoPass.type === "password") { //mostrar password
+                                        campoPass.type = "text";
+                                        mostrarBtn.classList.add("esconder-btn");
+                                    } else { //esconder password
+                                        campoPass.type = "password";
+                                        mostrarBtn.classList.remove("esconder-btn");
+                                    }
+                                });
+                            </script>
                         <?php
-                        if(isset($_REQUEST['Submit']) && $errores["Password"]=="1"){
+                        if(isset($_REQUEST['Submit']) && $errores['Password']=="1"){
                             print("<p style='color:red;font-size:18px;'  >Contraseña de usuario obligatorio</p>");
                         }
                         ?> 
-                      
-                     
+
                       <input type="submit" name="submit" value="Acceder">
                     </form>
                     
