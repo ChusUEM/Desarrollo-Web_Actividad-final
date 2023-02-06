@@ -91,14 +91,13 @@
 		}
         debug_to_console("antes de conexión a sql");
 				if(isset($_REQUEST['enviar']) && $error==false){
-					$conex= new mysqli("localhost", "root","", "Usuarios") or die ("No puede conectar a mysqli");
+					$conex= new mysqli("localhost", "root","", "ActividadFinal") or die ("No puede conectar a mysqli");
 					$conex->set_charset("utf-8");
 					mysqli_set_charset($conex,"utf8"); ////PARA QUE META LOS CARACTERES ESPECIALES COMO TILDES.
 					
-					$conexion=mysqli_connect("localhost", "root", "", "Usuarios");
+					$conexion=mysqli_connect("localhost", "root", "", "ActividadFinal");
 					$seleccion=mysqli_query($conexion, "SELECT * from Usuarios");
 					$total= mysqli_num_rows($seleccion);
-					$subir=$total+1;
 					
 					//Comprobacion de que no registremos un Email ya existente en la B.D
 					$sqlResultado=mysqli_query($conex,"SELECT * FROM Usuarios where Email='$Email'") or die ("Fallo consulta");
@@ -116,7 +115,7 @@
 				}else{
 					echo "<div style='background-color:white;width:500px;'>";
 					print " $Mail";
-                    $consulta = "INSERT INTO Usuarios ('Id_Usuario', 'Nombre', 'Password', 'Email') VALUES ('$subir','$Nombre', '$pass', '$Email')";
+                    $consulta = "INSERT INTO Usuarios ('Nombre', 'Password', 'Email') VALUES ('$Nombre', '$pass', '$Email')";
                     echo $consulta;
 					mysqli_query($conex, $consulta);
 						print("<p style='color:black;font-size:87px;margin-left:20px;'  >Completado</p>");
@@ -135,9 +134,10 @@
                 </div>	
     
             <div id="contenido" class="text-center" align="right">
-                <form method="POST" action="register.php"  enctype="multipart/form-data" > </br>
+                <form method="GET" action="upload.php"  enctype="multipart/form-data" > </br>
                     <p>Email  </p><input class="cajas" type="text" name="Email" pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" value="<?php echo $Email ;?>"> </input> </br> 
                     <?php
+		
                     if(isset($_REQUEST['enviar']) && $errores["Email"]=="1"){
                         print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
                     }

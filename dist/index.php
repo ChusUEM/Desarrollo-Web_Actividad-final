@@ -179,12 +179,12 @@ session_start(); // Iniciamos la sesión del usuario
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/Casa 5_casas juntas/casa 5 juntas.jpeg" alt="..." />
+                            <img class="card-img-top" src="img/Casa 5_casas juntas/casa_5_juntas.jpeg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">En oferta</h5>
+                                    <h5 class="fw-bolder">Casas en entorno rural</h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>
