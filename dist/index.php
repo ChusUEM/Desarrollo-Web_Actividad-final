@@ -85,7 +85,7 @@ session_start(); // Iniciamos la sesión del usuario
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa1.html">Más Información</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa1.php">Más Información</a></div>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ session_start(); // Iniciamos la sesión del usuario
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa2.html">Más Información</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa2.php">Más Información</a></div>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@ session_start(); // Iniciamos la sesión del usuario
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa3.html">Más Información</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa3.php">Más Información</a></div>
                             </div>
                         </div>
                     </div>
@@ -170,7 +170,7 @@ session_start(); // Iniciamos la sesión del usuario
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa4.html">Más Información</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casa4.php">Más Información</a></div>
                             </div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ session_start(); // Iniciamos la sesión del usuario
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casasOferta.html">Más Información</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="casasOferta.php">Más Información</a></div>
                             </div>
                         </div>
                     </div>
