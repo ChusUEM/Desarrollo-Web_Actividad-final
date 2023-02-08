@@ -28,31 +28,32 @@
         </script>
 
 <?php
+
 $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexión con la BBDD
 $pass=md5($Password); // Encriptación de la contraseña
 
-    $Name=$_POST['Nombre']; // Getters para recuperar de 'register.php' los datos introducidos
-    $Mail=$_POST['Email'];
-    $Pass=$_POST['Password'];
+    $Reserve=$_POST['idReserva']; // Getters para recuperar de 'register.php' los datos introducidos
+    echo $Reserve;
+    echo "control POST idReserva";
 
-    $consulta = "INSERT INTO Usuarios (Nombre, Password, Email) VALUES ('$Name', '$Pass', '$Mail')" or die ("Fallo de inserción");
+    $consulta = "UPDATE Inmuebles SET ('RESERVADA' == 1) WHERE ('NOMBRE'= $Reserve)";
     mysqli_query($conexion, $consulta);
     if ($consulta){
-    echo("El usuario se ha creado satisfactoriamente");
-    } else {
-    echo ("El usuario NO se ha creado");
+        echo("Se ha formalizado la reserva");
+        } else {
+        echo ("La reserva no se ha realizado");
     }
 ?>
 
 <body>
 <div id="derecho">
     <div class="titulo">
-        ¡Bienvenido!
+        ¡Casa reservada!
     </div>
     <hr>
     <div class="pie-form">
     
-        <a href="login.php">Accede al LOGIN</a>
+        <a href="login.php">Seguir navegando</a>
     <hr>
     </div>
 </div>

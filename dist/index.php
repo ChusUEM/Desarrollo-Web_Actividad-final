@@ -64,7 +64,7 @@ session_start(); // Iniciamos la sesión del usuario
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/casa 1/bloque.jpg" alt="..." />
+                            <img class="card-img-top" src="img/casa1/bloque.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -92,7 +92,7 @@ session_start(); // Iniciamos la sesión del usuario
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/casa 2/bloque.jpg" alt="..." />
+                            <img class="card-img-top" src="img/casa2/bloque.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -122,7 +122,7 @@ session_start(); // Iniciamos la sesión del usuario
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/casa 3 adosado/adosado.jpg" alt="..." />
+                            <img class="card-img-top" src="img/casa3/adosado.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -150,7 +150,7 @@ session_start(); // Iniciamos la sesión del usuario
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/casa 4 chalet/chalet.jpeg" alt="..." />
+                            <img class="card-img-top" src="img/casa4/chalet.jpeg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -179,7 +179,7 @@ session_start(); // Iniciamos la sesión del usuario
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="img/Casa 5_casas juntas/casa_5_juntas.jpeg" alt="..." />
+                            <img class="card-img-top" src="img/Casa5_casas juntas/casa_5_juntas.jpeg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

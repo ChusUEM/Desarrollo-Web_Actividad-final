@@ -35,12 +35,13 @@ $pass=md5($Password); // Encriptación de la contraseña
     $Mail=$_POST['Email'];
     $Pass=$_POST['Password'];
 
+
     $consulta = "INSERT INTO Usuarios (Nombre, Password, Email) VALUES ('$Name', '$Pass', '$Mail')" or die ("Fallo de inserción");
     mysqli_query($conexion, $consulta);
     if ($consulta){
-    echo("El usuario se ha creado satisfactoriamente");
-    } else {
-    echo ("El usuario NO se ha creado");
+        echo("El usuario se ha creado satisfactoriamente");
+        } else {
+        echo ("El usuario NO se ha creado");
     }
 ?>
 

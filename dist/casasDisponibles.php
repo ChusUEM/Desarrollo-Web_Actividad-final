@@ -50,6 +50,7 @@ session_start();
                     }
                 </style>
                 <?php
+
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -62,36 +63,41 @@ session_start();
                 die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT * FROM Inmuebles /*WHERE ('RESERVADA' === 0)*/";
+                $sql = "SELECT * FROM Inmuebles WHERE ('RESERVADA' = 0)";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                 // output data of each row
                 echo '<table>';
-                echo "<tr><td>DESCRIPCION</td><td>PRECIO</td><td>DIRECCION</td><td>DIMENSION</td>
+                echo "<tr><td>ID</td><td>DESCRIPCION</td><td>PRECIO</td><td>DIRECCION</td><td>DIMENSION</td>
                           <td>HABITACIONES</td><td>BAÑOS</td><td>EMAIL</td><td>RESERVADA</td>
-                          <td>POPULAR</td><td>IMAGEN</td></tr>";
+                          <td>POPULAR</td><td>IMAGEN</td><td>RESERVAR</td></tr>";
                 while($row = mysqli_fetch_assoc($result)) {
+                    echo "<form method='POST' action='reserve.php'  enctype='multipart/form-data'>";
                     echo "<tr>";
-                    echo "<td>" . $row["DESCRIPCION"]. "</td><td>" . $row["PRECIO"]. "</td><td>" . $row["DIRECCION"]. "</td>
-                          <td>" . $row["DIMENSION"]. "</td><td>" . $row["HABITACIONES"]. "</td>
-                          <td>" . $row["BAÑOS"]. "</td><td>" . $row["EMAIL"]. "</td>
-                          <td>" . $row["RESERVADA"]. "</td><td>" . $row["POPULAR"]. "</td>
-                          <td>" . $row["IMAGEN"]. "</td>";
+                        echo "<td>" . $row["ID"] . "</td><td>" . $row["DESCRIPCION"] . "</td>
+                          <td>" . $row["PRECIO"] . "</td><td>" . $row["DIRECCION"] . "</td>
+                          <td>" . $row["DIMENSION"] . "</td><td>" . $row["HABITACIONES"] . "</td>
+                          <td>" . $row["BAÑOS"] . "</td><td>" . $row["EMAIL"] . "</td>
+                          <td>" . $row["RESERVADA"] . "</td><td>" . $row["POPULAR"] . "</td>
+                          <td>" . '<img src="data:image/jpeg;base64,'.base64_encode( $row['IMAGEN'] ).'" height="100" width="100"/>'."</td>
+                          <td>" . "<input name='idReserva' type='radio' value=".$row['ID'].">". "</td>";   
                     echo "</tr>";
                     }
+                    echo "</form>";
                 echo '</table>';
                 } else {
                 echo "0 results";
                 }
-
-                echo "cerrando conexión";
+                // 
+                //echo "cerrando conexión";
                 mysqli_close($conn);
                 ?>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="reserve.php">Reservar</a></div> <br></br>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.php">Seguir navegando</a></div>
-                            </div>
+
+                <!-- Product actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                    <div class="text-center" name="reservar"><a class="btn btn-outline-dark mt-auto" href="reserve.php">Reservar</a></div> <br></br>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.php">Seguir navegando</a></div>
+                </div>
                         
                     
             </div>
