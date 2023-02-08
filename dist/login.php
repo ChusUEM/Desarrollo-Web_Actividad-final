@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 
@@ -94,11 +97,11 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form class= "form" method="post" action="index.php" style="transform: none;">  
-                        <h2>Iniciar Sesión</h2>
-                        <p><span class="error">* required field</span></p>
+                    <form class= "form" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" style="transform: none;">  
+                        <h2>INICIAR SESIÓN</h2>
+                        <p><span class="error">* Campos requeridos</span></p>
 
-                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>">
+                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>" required>
                         <?php
                         if(isset($_REQUEST['Submit']) && $errores["Email"]=="1"){
                             print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
