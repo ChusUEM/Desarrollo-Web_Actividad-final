@@ -37,7 +37,7 @@
 	$recaptcha=$_POST['g-recaptcha-response'];
 	$errores = array();
 	$error = false;
-	$direccion=""; $nombre=""; $apellidos=""; $correo=""; $localidad="";
+	$Password=""; $Nombre=""; $Email="";
 	if ($recaptcha != ''){
 		$secret="6LdB5iIUAAAAALAM7opS9Y7fdRL421DC_QsK3nB4";
 		$ip=$_SERVER['REMOTE_ADDR'];
@@ -149,7 +149,7 @@
                     }
                     ?>
                 
-                    <p> Nombre </p> <input type="text"   class="cajas" name="Nombre"  value="<?php echo $correo ;?>"> </input> 
+                    <p> Nombre </p> <input type="text"   class="cajas" name="Nombre"  value="<?php echo $Nombre ;?>"> </input> 
                     <?php
                     if(isset($_REQUEST['enviar']) && $errores["Nombre"]=="1"){
                         print("<p style='color:red;font-size:18px' >Nombre de usuario obligatorio</p>");
