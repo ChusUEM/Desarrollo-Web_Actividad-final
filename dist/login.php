@@ -97,7 +97,7 @@ session_start();
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form class= "form" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>" style="transform: none;">  
+                    <form class= "form" method="post" action="selectUser.php" style="transform: none;">  
                         <h2>INICIAR SESIÓN</h2>
                         <p><span class="error">* Campos requeridos</span></p>
 
@@ -111,7 +111,7 @@ session_start();
                       Contraseña: *
                       <!--caja de contraseña-->
                       <div class="wrapper">
-                            <input type="password" placeholder="Escribe tu contraseña" value="<?php echo $Password; ?>" required>
+                            <input type="Password" placeholder="Escribe tu contraseña" value="<?php echo $Password; ?>" required>
                             <span class="mostrar-btn"><i class="fas fa-eye"></i></span><!--muestra el ojo-->
                       </div>
                       <span class="mostrar-btn"><i class="fas fa-eye"></i></span> <!--muestra el ojo-->
@@ -121,11 +121,11 @@ session_start();
                                 const mostrarBtn = document.querySelector("span i");
                                 
                                 mostrarBtn.onclick = (() => {
-                                    if (campoPass.type === "password") { //mostrar password
+                                    if (campoPass.type === "Password") { //mostrar password
                                         campoPass.type = "text";
                                         mostrarBtn.classList.add("esconder-btn");
                                     } else { //esconder password
-                                        campoPass.type = "password";
+                                        campoPass.type = "Password";
                                         mostrarBtn.classList.remove("esconder-btn");
                                     }
                                 });

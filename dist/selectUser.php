@@ -1,5 +1,6 @@
-
-
+<?php
+session_start();
+?>
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 <head>
@@ -29,31 +30,26 @@
 
 <?php
 $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexión con la BBDD
-$pass=md5($Password); // Encriptación de la contraseña
 
-    $Name=$_POST['Nombre']; // Getters para recuperar de 'register.php' los datos introducidos
-    $Mail=$_POST['Email'];
+    $Mail=$_POST['Email']; // Getters para recuperar de 'login.php' los datos introducidos
     $Pass=$_POST['Password'];
 
-    $consulta = "INSERT INTO Usuarios (Nombre, Password, Email) VALUES ('$Name', '$Pass', '$Mail')" or die ("Fallo de inserción");
+    $consulta = "SELECT (Password, Email) FROM Usuarios WHERE (Email='$Mail')" or die ("Fallo de inserción");
     mysqli_query($conexion, $consulta);
     if ($consulta){
-    echo("El usuario se ha creado satisfactoriamente");
+    echo("Login iniciado satisfactoriamente");
     } else {
-    echo ("El usuario NO se ha creado");
+    echo ("Email o password incorrecta/s. Inténtelo de nuevo");
     }
 ?>
 
 <body>
-<div id="derecho">
-    <div class="titulo">
-        ¡Bienvenido!
+    <div id="contenido" class="text-center">
+    <input type="submit" name="entrar" value="Ir a la página principal" class="cajas" style="font-size:40px;" href="index.php"> </input>
     </div>
-    <hr>
+    </div>
     <div class="pie-form">
-    
-        <a href="login.php">Accede al LOGIN</a>
-    <hr>
+                        <a href="index.php">Acceder a la página principal</a>
+                        <hr>
     </div>
-</div>
 </body>
