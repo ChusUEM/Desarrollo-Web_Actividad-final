@@ -142,7 +142,7 @@
                         print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
                     }
                     ?>
-                    <p> Password </p> <input  class="cajas" type="password" name="Password" > </input> </br> 
+                    <p> Password </p> <input  class="cajas" type="password" name="Password" value="<?php echo $Password ;?>"> </input> </br> 
                     <?php
                     if(isset($_REQUEST['enviar']) && $errores["Password"]=="1"){
                         print("<p style='color:red;font-size:18px;' >Password de usuario obligatoria</p>");

@@ -30,11 +30,12 @@ session_start();
 
 <?php
 $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexión con la BBDD
-
+echo ("Conectado bbdd");
     $Mail=$_POST['Email']; // Getters para recuperar de 'login.php' los datos introducidos
     $Pass=$_POST['Password'];
-
-    $consulta = "SELECT (Password, Email) FROM Usuarios WHERE (Email='$Mail')" or die ("Fallo de inserción");
+    echo $Mail;
+    echo $Pass;
+    $consulta = "SELECT 'Password', 'Email' FROM Usuarios WHERE 'Email'='$Mail' AND 'Password'='$Pass' " or die ("Fallo de inserción");
     mysqli_query($conexion, $consulta);
     if ($consulta){
     echo("Login iniciado satisfactoriamente");
@@ -44,10 +45,7 @@ $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexió
 ?>
 
 <body>
-    <div id="contenido" class="text-center">
-    <input type="submit" name="entrar" value="Ir a la página principal" class="cajas" style="font-size:40px;" href="index.php"> </input>
-    </div>
-    </div>
+
     <div class="pie-form">
                         <a href="index.php">Acceder a la página principal</a>
                         <hr>

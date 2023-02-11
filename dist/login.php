@@ -36,6 +36,7 @@ session_start();
     
     <body>
     <?php
+/*
     $errores = array();
     $error = false;
     $Email='';
@@ -72,14 +73,14 @@ session_start();
                 ///establecemos las variables de session
                 $_SESSION["Email"]=$Email;
                 echo "<p style='font-size:60px;'> BIENVENIDO, $_SESSION[Email] <br/> </p>";
-                print ("<a style='font-size:60px;color:blue;' href='login.php' /> IR AL LOGIN DE LA WEB </a>");
+                print ("<a style='font-size:60px;color:blue;' href='selectUser.php' /> IR AL LOGIN DE LA WEB </a>");
                 echo "</div>";
             }
             else
             {
                 echo "<div style='background-color:white;width:500px;'>";
                 print("<a style='font-size:60px;color:black;' />Password incorrecta </a><br>");
-                print ("<a style='font-size:60px;color:blue;' href='login.php' /> Reintentar </a>");
+                print ("<a style='font-size:60px;color:blue;' href='selectUser.php' /> Reintentar </a>");
                 echo "</div>";
             }
         }
@@ -87,12 +88,13 @@ session_start();
         {
             echo "<div style='background-color:white;width:500px;'>";
             print("<a style='font-size:60px;color:black;' />Este usuario no existe </a><br>");
-            print ("<a style='font-size:60px;color:blue;' href='login.php' /> Reintentar </a>");
+            print ("<a style='font-size:60px;color:blue;' href='selectUser.php' /> Reintentar </a>");
             echo "</div>";
         }
     } else {
-
+*/
         ?>
+    <div id="contenido" class="text-center" align="right">
         <div id="contenedor">
             
             <div id="contenedorcentrado">
@@ -101,7 +103,7 @@ session_start();
                         <h2>INICIAR SESIÓN</h2>
                         <p><span class="error">* Campos requeridos</span></p>
 
-                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>" required>
+                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>" pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" required>
                         <?php
                         if(isset($_REQUEST['Submit']) && $errores["Email"]=="1"){
                             print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
@@ -111,11 +113,11 @@ session_start();
                       Contraseña: *
                       <!--caja de contraseña-->
                       <div class="wrapper">
-                            <input type="Password" placeholder="Escribe tu contraseña" value="<?php echo $Password; ?>" required>
+                            <input type="Password" placeholder="Escribe tu contraseña" value="<?php echo $pass; ?>" required>
                             <span class="mostrar-btn"><i class="fas fa-eye"></i></span><!--muestra el ojo-->
                       </div>
-                      <span class="mostrar-btn"><i class="fas fa-eye"></i></span> <!--muestra el ojo-->
-                            <!--script para mostrar u ocultar la contraseña-->
+                     <!-- <span class="mostrar-btn"><i class="fas fa-eye"></i></span> muestra el ojo
+                            script para mostrar u ocultar la contraseña
                             <script>
                                 const campoPass = document.querySelector("input");
                                 const mostrarBtn = document.querySelector("span i");
@@ -129,11 +131,12 @@ session_start();
                                         mostrarBtn.classList.remove("esconder-btn");
                                     }
                                 });
-                            </script>
+                            </script> -->
                         <?php
+                        /*
                         if(isset($_REQUEST['Submit']) && $errores['Password']=="1"){
                             print("<p style='color:red;font-size:18px;'  >Contraseña de usuario obligatorio</p>");
-                        }
+                        }*/
                         ?> 
 
                       <input type="submit" name="submit" value="Acceder">
@@ -154,8 +157,9 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>
     <?php
-    }
+    //}
     ?>   
     </body>
 </html>

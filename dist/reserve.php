@@ -1,5 +1,6 @@
-
-
+<?php
+session_start();
+?>
 <!-- Define que el documento esta bajo el estandar de HTML 5 -->
 <!doctype html>
 <head>
@@ -26,22 +27,30 @@
         <script type="text/javascript">
         
         </script>
-
+</head>
 <?php
 
 $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexión con la BBDD
 $pass=md5($Password); // Encriptación de la contraseña
 
-    $Reserve=$_POST['idReserva']; // Getters para recuperar de 'register.php' los datos introducidos
+$Reserve = $_POST['idReserva']; // Getters para recuperar de 'register.php' los datos introducidos
     echo $Reserve;
-    echo "control POST idReserva";
 
-    $consulta = "UPDATE Inmuebles SET ('RESERVADA' == 1) WHERE ('NOMBRE'= $Reserve)";
-    mysqli_query($conexion, $consulta);
-    if ($consulta){
-        echo("Se ha formalizado la reserva");
-        } else {
-        echo ("La reserva no se ha realizado");
+    $consulta_reservada = "SELECT RESERVADA FROM Inmuebles WHERE ID = $Reserve";
+    mysqli_query($conexion, $consulta_reservada);
+    //$afianzar_consulta = $_POST($consulta_reservada);
+    echo ($consulta_reservada);    
+    if ($consulta_reservada = 1){
+        echo ("La casa ya estaba reservada. Lo sentimos.");
+    } else {
+        $consulta = "UPDATE Inmuebles SET RESERVADA = 1 WHERE ID = $Reserve";
+        mysqli_query($conexion, $consulta);
+    echo ($consulta);
+        if ($consulta){
+            echo("Se ha formalizado la reserva");
+            } else {
+            echo ("La reserva no se ha realizado");
+            }
     }
 ?>
 
@@ -53,7 +62,7 @@ $pass=md5($Password); // Encriptación de la contraseña
     <hr>
     <div class="pie-form">
     
-        <a href="login.php">Seguir navegando</a>
+        <a href="index.php">Seguir navegando</a>
     <hr>
     </div>
 </div>

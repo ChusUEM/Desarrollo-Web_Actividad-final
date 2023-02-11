@@ -63,7 +63,7 @@ session_start();
                 die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT * FROM Inmuebles WHERE ('RESERVADA' = 0)";
+                $sql = "SELECT * FROM Inmuebles WHERE RESERVADA = 0";
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                 // output data of each row
@@ -80,7 +80,7 @@ session_start();
                           <td>" . $row["BAÑOS"] . "</td><td>" . $row["EMAIL"] . "</td>
                           <td>" . $row["RESERVADA"] . "</td><td>" . $row["POPULAR"] . "</td>
                           <td>" . '<img src="data:image/jpeg;base64,'.base64_encode( $row['IMAGEN'] ).'" height="100" width="100"/>'."</td>
-                          <td>" . "<input name='idReserva' type='radio' value=".$row['ID'].">". "</td>";   
+                          <td>" . "<input id='idReserva' type='radio' value=".$row['ID'].">". "</td>";   
                     echo "</tr>";
                     }
                     echo "</form>";
@@ -104,7 +104,7 @@ session_start();
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Creado por Sofía Corral Caballero y Jesús Fernando Franciso de Granada</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Creado por Sofía Corral Caballero y Jesús Fernando Franciso de Granda</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
