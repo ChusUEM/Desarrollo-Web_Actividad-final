@@ -29,18 +29,24 @@ session_start();
         </script>
 </head>
 <?php
-
+//echo ("antes de conexion");
 $conexion=mysqli_connect("localhost", "root", "", "ActividadFinal"); // Conexión con la BBDD
 $pass=md5($Password); // Encriptación de la contraseña
+//echo ("despues de conexion");
+$Reserve = $_GET['idReserva']; // Getters para recuperar de 'register.php' los datos introducidos
+    //echo $Reserve;
 
-$Reserve = $_POST['idReserva']; // Getters para recuperar de 'register.php' los datos introducidos
-    echo $Reserve;
-
-    $consulta_reservada = "SELECT RESERVADA FROM Inmuebles WHERE ID = $Reserve";
-    mysqli_query($conexion, $consulta_reservada);
-    //$afianzar_consulta = $_POST($consulta_reservada);
-    echo ($consulta_reservada);    
-    if ($consulta_reservada = 1){
+    $query = "SELECT RESERVADA FROM Inmuebles WHERE ID = $Reserve";
+    $consulta_reservada = mysqli_query($conexion, $query);
+    //echo ($query);
+    
+    if (mysqli_num_rows($consulta_reservada) > 0) {
+        while($row = mysqli_fetch_assoc($consulta_reservada)) {
+            $reservada = $row["RESERVADA"];
+        }
+    }
+    
+    if ($reservada == 1){
         echo ("La casa ya estaba reservada. Lo sentimos.");
     } else {
         $consulta = "UPDATE Inmuebles SET RESERVADA = 1 WHERE ID = $Reserve";

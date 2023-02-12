@@ -94,14 +94,15 @@ var_dump($a);
                           <td>HABITACIONES</td><td>BAÑOS</td><td>EMAIL</td><td>RESERVADA</td>
                           <td>POPULAR</td><td>RESERVAR</td></tr>";
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<form method='POST' action='reserve.php'  enctype='multipart/form-data'>";
+                    echo "<form method='GET' action='reserve.php'  enctype='multipart/form-data'>";
                     echo "<tr>";
                         echo "<td>" . $row["ID"] . "</td><td>" . $row["DESCRIPCION"] . "</td>
                           <td>" . $row["DIRECCION"] . "</td>
                           <td>" . $row["DIMENSION"] . "</td><td>" . $row["HABITACIONES"] . "</td>
                           <td>" . $row["BAÑOS"] . "</td><td>" . $row["EMAIL"] . "</td>
                           <td>" . $row["RESERVADA"] . "</td><td>" . $row["POPULAR"] . "</td>
-                          <td>" . "<input id='idReserva' type='radio' value=".$row['ID'].">". "</td>";   
+                          <td>" . "<input id='idReserva' name='idReserva' type='radio' value=".$row['ID'].">". "</td>
+                          <td>" . "<input type='submit' name='submit' value='Reservar' . </td>";   
                     echo "</tr>";
                     }
                     echo "</form>";
@@ -115,9 +116,6 @@ var_dump($a);
                 ?>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <? if ($row['RESERVADA'] === 0):?>
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="reserve.php">Reservada</a></div> <br></br>
-                                <? endif; ?>
                                 
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.php">Seguir navegando</a></div>
                             </div>
