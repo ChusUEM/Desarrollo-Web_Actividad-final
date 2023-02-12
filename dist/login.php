@@ -99,11 +99,11 @@ session_start();
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form class= "form" method="post" action="selectUser.php" style="transform: none;">  
+                    <form class= "form" method="GET" action="selectUser.php" style="transform: none;">  
                         <h2>INICIAR SESIÓN</h2>
                         <p><span class="error">* Campos requeridos</span></p>
 
-                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" value="<?php echo $Email; ?>" pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" required>
+                      E-mail: *<input type="text" name="Email" placeholder="Escribe tu email" pattern="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" required>
                         <?php
                         if(isset($_REQUEST['Submit']) && $errores["Email"]=="1"){
                             print("<p style='color:red;font-size:18px;'  >Email de usuario obligatorio</p>");
@@ -113,7 +113,7 @@ session_start();
                       Contraseña: *
                       <!--caja de contraseña-->
                       <div class="wrapper">
-                            <input type="Password" placeholder="Escribe tu contraseña" value="<?php echo $pass; ?>" required>
+                            <input type="Password" placeholder="Escribe tu contraseña" name="Password" required>
                             <span class="mostrar-btn"><i class="fas fa-eye"></i></span><!--muestra el ojo-->
                       </div>
                      <!-- <span class="mostrar-btn"><i class="fas fa-eye"></i></span> muestra el ojo

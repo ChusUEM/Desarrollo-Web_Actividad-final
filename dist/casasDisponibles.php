@@ -79,8 +79,9 @@ session_start();
                           <td>" . $row["DIMENSION"] . "</td><td>" . $row["HABITACIONES"] . "</td>
                           <td>" . $row["BAÑOS"] . "</td><td>" . $row["EMAIL"] . "</td>
                           <td>" . $row["RESERVADA"] . "</td><td>" . $row["POPULAR"] . "</td>
-                          <td>" . '<img src="data:image/jpeg;base64,'.base64_encode( $row['IMAGEN'] ).'" height="100" width="100"/>'."</td>
-                          <td>" . "<input id='idReserva' type='radio' value=".$row['ID'].">". "</td>";   
+                          <td>" . '<img src="data:image/jpeg;base64,' . base64_encode($row['IMAGEN']) . '" height="100" width="100"/>' . "</td>
+                          <td>" . "<input id='idReserva' name='idReserva' type='radio' value=" . $row['ID'] . ">" . "</td> 
+                          <td>" . "<input type='submit' name='submit' . </td>";  
                     echo "</tr>";
                     }
                     echo "</form>";
