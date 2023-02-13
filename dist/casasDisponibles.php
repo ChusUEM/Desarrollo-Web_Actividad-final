@@ -96,7 +96,6 @@ session_start();
 
                 <!-- Product actions-->
                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center" name="reservar"><a class="btn btn-outline-dark mt-auto" href="reserve.php">Reservar</a></div> <br></br>
                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="index.php">Seguir navegando</a></div>
                 </div>
                         
