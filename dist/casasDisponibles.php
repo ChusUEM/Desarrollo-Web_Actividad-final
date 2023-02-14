@@ -72,7 +72,7 @@ session_start();
                           <td>HABITACIONES</td><td>BAÑOS</td><td>EMAIL</td><td>RESERVADA</td>
                           <td>POPULAR</td><td>IMAGEN</td><td>RESERVAR</td></tr>";
                 while($row = mysqli_fetch_assoc($result)) {
-                    echo "<form method='POST' action='reserve.php'  enctype='multipart/form-data'>";
+                    echo "<form method='GET' action='reserve.php'  enctype='multipart/form-data'>";
                     echo "<tr>";
                         echo "<td>" . $row["ID"] . "</td><td>" . $row["DESCRIPCION"] . "</td>
                           <td>" . $row["PRECIO"] . "</td><td>" . $row["DIRECCION"] . "</td>
